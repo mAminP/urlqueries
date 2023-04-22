@@ -1,11 +1,11 @@
 
-``` bash 
+``` sh 
 go install https://github.com/mAminP/urlqueries@latest
 
 ```
 
 
-``` bash 
+``` sh 
 cat urls | urlqueries
 
 ```
