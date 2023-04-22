@@ -29,7 +29,7 @@ func main() {
 		if u.RawQuery != "" {
 			m, _ := url.ParseQuery(u.RawQuery)
 			for k := range m {
-				if slices.Contains(params, k) == false {
+				if !slices.Contains(params, k) {
 					params = append(params, k)
 					fmt.Println(k)
 				}
