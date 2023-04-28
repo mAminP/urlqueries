@@ -30,11 +30,13 @@ func main() {
 		if u.RawQuery != "" {
 			m, _ := url.ParseQuery(u.RawQuery)
 			for k := range m {
-				key := strings.TrimSpace(k)
-				if !strings.Contains(key, ".") && !strings.Contains(key, ">") && !strings.Contains(key, "<") && !strings.Contains(key, ",") && !strings.Contains(key, "/") && !strings.Contains(key, "\\") && !strings.Contains(key, "\"") && !strings.Contains(key, "'") {
-					if !slices.Contains(params, key) {
-						params = append(params, key)
-						fmt.Println(k)
+				if k != "" {
+					key := strings.TrimSpace(strings.TrimSpace(k))
+					if !strings.Contains(key, ".") && !strings.Contains(key, ">") && !strings.Contains(key, "<") && !strings.Contains(key, ",") && !strings.Contains(key, "/") && !strings.Contains(key, "\\") && !strings.Contains(key, "\"") && !strings.Contains(key, "'") {
+						if !slices.Contains(params, key) {
+							params = append(params, key)
+							fmt.Println(k)
+						}
 					}
 				}
 			}
