@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/url"
 	"os"
+	"strings"
 
 	"golang.org/x/exp/slices"
 )
@@ -29,9 +30,12 @@ func main() {
 		if u.RawQuery != "" {
 			m, _ := url.ParseQuery(u.RawQuery)
 			for k := range m {
-				if !slices.Contains(params, k) {
-					params = append(params, k)
-					fmt.Println(k)
+				key := strings.TrimSpace(k)
+				if !strings.Contains(key, ">") && !strings.Contains(key, "<") && !strings.Contains(key, ",") && !strings.Contains(key, "/") && !strings.Contains(key, "\\") && !strings.Contains(key, "\"") && !strings.Contains(key, "'") {
+					if !slices.Contains(params, key) {
+						params = append(params, key)
+						fmt.Println(k)
+					}
 				}
 			}
 		}
