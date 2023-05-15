@@ -1,8 +1,10 @@
 
 ``` sh 
-go install https://github.com/mAminP/urlqueries@latest
+go install https://github.com/mAminP/urlqueries/cmd/urlqueries@latest
 
 ```
+
+
 
 
 ``` sh 
