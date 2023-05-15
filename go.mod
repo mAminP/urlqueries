@@ -1,4 +1,4 @@
-module urlqueries
+module github.com/mAminP/urlqueries
 
 go 1.18
 
